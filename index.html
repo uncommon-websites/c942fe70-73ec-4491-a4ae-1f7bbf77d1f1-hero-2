@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guided Energy Hero</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Animation keyframes */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+                filter: blur(4px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+                filter: blur(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Base animation class - ease-out for entering elements */
+        .animate-fade-in-up {
+            opacity: 0;
+            animation: fadeInUp 0.8s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        .animate-scale-in {
+            opacity: 0;
+            animation: scaleIn 0.6s cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+        }
+
+        /* Staggered delays for sequential reveals */
+        .delay-0 { animation-delay: 0ms; }
+        .delay-100 { animation-delay: 100ms; }
+        .delay-200 { animation-delay: 200ms; }
+        .delay-300 { animation-delay: 300ms; }
+        .delay-400 { animation-delay: 400ms; }
+        .delay-500 { animation-delay: 500ms; }
+        .delay-600 { animation-delay: 600ms; }
+        .delay-700 { animation-delay: 700ms; }
+
+        /* Typography Utilities */
+        .text-balance { text-wrap: balance; }
+        .text-pretty { text-wrap: pretty; }
+
+        /* Custom font settings for that tight, bold look */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Icon alignment fix for the headline */
+        .headline-icon {
+            display: inline-block;
+            height: 0.85em;
+            width: 0.85em;
+            vertical-align: -0.075em;
+            margin: 0 0.05em;
+        }
+
+        /* Accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .animate-fade-in-up,
+            .animate-fade-in,
+            .animate-scale-in {
+                animation: none;
+                opacity: 1;
+                transform: none;
+                filter: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-white min-h-screen flex flex-col items-center justify-center p-6 overflow-x-hidden">
+
+    <main class="w-full max-w-6xl mx-auto flex flex-col items-center text-center pt-10 pb-20">
+        
+        <!-- Top Label -->
+        <div class="animate-fade-in-up delay-0 mb-6">
+            <h3 class="text-black font-bold text-lg tracking-tight">Guided Energy</h3>
+        </div>
+
+        <!-- Main Headline -->
+        <h1 class="animate-fade-in-up delay-100 text-balance font-bold text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.05] tracking-tight text-black max-w-5xl mx-auto mb-12">
+            AI agents 
+            <!-- Square Face Icon -->
+            <svg class="headline-icon text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="3" width="18" height="18" rx="5" ry="5"></rect>
+                <circle cx="9" cy="9" r="1.5" fill="currentColor" stroke="none"></circle>
+                <circle cx="15" cy="9" r="1.5" fill="currentColor" stroke="none"></circle>
+                <path d="M9 15c.5 1 2.5 1 3 1s2.5 0 3-1"></path>
+            </svg>
+            automating<br class="hidden sm:block" />
+            manual legacy 
+            <!-- Lightning Icon -->
+            <svg class="headline-icon text-black fill-black" viewBox="0 0 24 24" stroke="currentColor" stroke-width="0">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"></path>
+            </svg>
+            freight<br class="hidden sm:block" />
+            <!-- Brain/Flower Icon -->
+            <svg class="headline-icon text-black" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 4a3 3 0 0 0-2.83 4h5.66A3 3 0 0 0 12 4z"></path>
+                <path d="M14.83 8A3 3 0 0 1 18 10.83v.34a3 3 0 0 1-2.83 2.83h-.34"></path>
+                <path d="M14.83 14h.34A3 3 0 0 1 18 16.83v.34a3 3 0 0 1-2.83 2.83"></path>
+                <path d="M12 20a3 3 0 0 1-2.83-4h5.66A3 3 0 0 1 12 20z"></path>
+                <path d="M9.17 16a3 3 0 0 1-3.17-2.83v-.34a3 3 0 0 1 2.83-2.83h.34"></path>
+                <path d="M9.17 10h-.34A3 3 0 0 1 6 7.17v-.34A3 3 0 0 1 8.83 4"></path>
+                <!-- Central cross/plus to mimic the icon structure -->
+                <path d="M12 8v8"></path>
+                <path d="M8 12h8"></path>
+            </svg>
+            logistics coordination
+        </h1>
+
+        <!-- CTA Button -->
+        <div class="animate-fade-in-up delay-300 mb-16">
+            <a href="#" class="inline-flex items-center justify-center gap-3 bg-black text-white px-8 py-4 rounded-2xl hover:scale-105 hover:bg-gray-900 transition-all duration-300 shadow-lg group">
+                <svg class="w-6 h-6 mb-1" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.05 20.28c-.98.95-2.05.8-3.08.35-1.09-.46-2.09-.48-3.24 0-1.44.62-2.2.44-3.06-.35C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.74 1.18 0 2.45-1.62 4.37-1.62 1.03.06 2.59.81 3.5 1.96-3.1 1.89-2.43 6.51.84 7.81-.62 1.57-1.4 3.1-2.79 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z"/>
+                </svg>
+                <span class="font-semibold text-lg tracking-wide">Book a Demo</span>
+            </a>
+        </div>
+
+        <!-- Social Proof / Badges -->
+        <div class="animate-fade-in delay-500 flex flex-col sm:flex-row items-center justify-center gap-8 sm:gap-16 opacity-80">
+            
+            <!-- Badge 1: Sequoia Capital -->
+            <div class="flex items-center gap-3 text-gray-300">
+                <!-- Left Laurel -->
+                <svg class="w-8 h-12" viewBox="0 0 24 48" fill="currentColor">
+                    <path d="M20 44c0 0-5-8-5-20s5-20 5-20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M16 38c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 32c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 26c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 20c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M16 14c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M18 8c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                
+                <div class="flex flex-col items-center justify-center">
+                    <span class="text-[0.65rem] uppercase tracking-wider font-medium text-gray-400 mb-0.5">Backed by</span>
+                    <span class="text-lg font-bold text-gray-300 leading-none">App of the Day</span>
+                </div>
+
+                <!-- Right Laurel -->
+                <svg class="w-8 h-12" viewBox="0 0 24 48" fill="currentColor">
+                    <path d="M4 44c0 0 5-8 5-20S4 4 4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M8 38c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 32c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 26c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 20c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M8 14c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M6 8c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+            <!-- Badge 2: Transport AI -->
+            <div class="flex items-center gap-3 text-gray-300">
+                <!-- Left Laurel -->
+                <svg class="w-8 h-12" viewBox="0 0 24 48" fill="currentColor">
+                    <path d="M20 44c0 0-5-8-5-20s5-20 5-20" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M16 38c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 32c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 26c-2 1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M15 20c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M16 14c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M18 8c-2-1-4 0-4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+                
+                <div class="flex flex-col items-center justify-center">
+                    <span class="text-[0.65rem] uppercase tracking-wider font-medium text-gray-400 mb-0.5">Featured by Apple</span>
+                    <span class="text-lg font-bold text-gray-300 leading-none">Editors Choice</span>
+                </div>
+
+                <!-- Right Laurel -->
+                <svg class="w-8 h-12" viewBox="0 0 24 48" fill="currentColor">
+                    <path d="M4 44c0 0 5-8 5-20S4 4 4 4" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/>
+                    <path d="M8 38c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 32c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 26c2 1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M9 20c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M8 14c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                    <path d="M6 8c2-1 4 0 4 0" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+                </svg>
+            </div>
+
+        </div>
+
+    </main>
+
+</body>
+</html>
